@@ -12,6 +12,8 @@ the use of init/chkconfig so hopefully it will support other distros in a future
 
 Attributes
 ==========
+See `attributes/grill.rb` for all default values.
+
 * `node["cycle_server"]["grill"]["url"]` - URL to download the Grill tarball from your private repository
 * `node["cycle_server"]["grill"]["checksum"]` - SHA256 checksum of the Grill tarball
 * `node["cycle_server"]["grill"]["include_java"]` - Enable/disable including and using the community Java cookbook
@@ -30,7 +32,11 @@ Usage
 Grill requires 2 pieces of manual configuration and then will configure a basic Grill server out of the box. These are
 private download locations for the Grill tarball and Oracle Java. This is because each requires manual actions on a web
 page to download. Once you've downloaded them to your private repository, you may want to configure Grill with a role
-like so:
+like the example below.
+
+Once Grill is up and running, point your browser at port 8080 and complete the configuration via the Grill webui.
+
+Role example:
 
 `grill_server.rb`
 
