@@ -17,3 +17,15 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 #
+
+default["cycle_server"]["grill"]["url"] = "http://download.example.com/cycleserver/cycle_server-grill-1.5.tar.gz"
+default["cycle_server"]["grill"]["checksum"] = "1925adab234c188f1cb55a54d34ca1668865ee72da16db15904669fc5a1f9d08"
+default["cycle_server"]["grill"]["include_java"] = true
+default["cycle_server"]["grill"]["manage_user"] = true
+default["cycle_server"]["grill"]["user"] = "cycleserver"
+default["cycle_server"]["grill"]["group"] = "cycleserver"
+default["cycle_server"]["grill"]["webServerMaxHeapSize"] = "768M"
+default["cycle_server"]["grill"]["databaseMaxHeapSize"] = "256M"
+default["cycle_server"]["grill"]["brokerMaxHeapSize"] = "96M"
+default["cycle_server"]["grill"]["maxActiveDatabaseConnections"] = "25"
+default["cycle_server"]["grill"]["brokerJmxPort"] = nil
