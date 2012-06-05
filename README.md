@@ -2,7 +2,7 @@ Description
 ===========
 
 This cookbook installs and configures CycleComputing's CycleServer. Currently only the standalone version of the Grill
-component is supported.
+component is supported. For more information about CycleServer and Grill, see http://www.cyclecomputing.com/grill
 
 Requirements
 ============
