@@ -32,8 +32,9 @@ private download locations for the Grill tarball and Oracle Java. This is becaus
 page to download. Once you've downloaded them to your private repository, you may want to configure Grill with a role
 like so:
 
-grill_server.rb
+`grill_server.rb`
 
+```
 name 'grill_server'
 description 'CycleServer Grill Server'
 
@@ -60,6 +61,7 @@ default_attributes(
     }
   }
 )
+```
 
 Note that Oracle Java is required and the above assumes you are using the community Java cookbook. If you have another
 prefered method for providing Oracle Java for your environment, you can disable inclusion of the java recipe by setting
