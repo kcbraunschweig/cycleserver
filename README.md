@@ -9,8 +9,8 @@ The canonical source for this cookbook is: https://github.com/kcbraunschweig/cyc
 Requirements
 ============
 
-The cookbook has been tested on RHEL 5.7 and should work on any RedHat style linux. The only thing distro-specific is
-the use of init/chkconfig so hopefully it will support other distros in a future version.
+The cookbook has been tested on RHEL 5.7 and 6.1. It should work on any RedHat style linux. The only thing
+distro-specific is the use of init/chkconfig so hopefully it will support other distros in a future version.
 
 Attributes
 ==========
