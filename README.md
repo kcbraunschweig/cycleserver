@@ -20,9 +20,9 @@ See `attributes/grill.rb` for all default values.
 * `node["cycle_server"]["grill"]["manage_user"]` - Enable/disable managing the user that will run Grill
 * `node["cycle_server"]["grill"]["user"]` - The user that will run Grill
 * `node["cycle_server"]["grill"]["group"]` - Group for the user that will run Grill
-* `node["cycle_server"]["grill"]["webServerMaxHeapSize"]` - Default `768M`
-* `node["cycle_server"]["grill"]["databaseMaxHeapSize"]` - Default `256M`
-* `node["cycle_server"]["grill"]["brokerMaxHeapSize"]` - Default `96M`
+* `node["cycle_server"]["grill"]["webServerMaxHeapSizeMB"]` - Default `768`
+* `node["cycle_server"]["grill"]["databaseMaxHeapSizeMB"]` - Default `256`
+* `node["cycle_server"]["grill"]["brokerMaxHeapSizeMB"]` - Default `96`
 * `node["cycle_server"]["grill"]["maxActiveDatabaseConnections"]` - Default `25`
 * `node["cycle_server"]["grill"]["brokerJmxPort"]` - Default `nil`, set to an integer to enable on that port
 

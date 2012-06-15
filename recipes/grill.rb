@@ -18,12 +18,21 @@
 # limitations under the License.
 #
 
+# Sanity check install source
 tarball_url = node["cycle_server"]["grill"]["url"]
 install_file = File.basename(tarball_url)
 install_name = File.basename(tarball_url, '.tar.gz')
 
 if tarball_url =~ /example.com/
   Chef::Application.fatal!("You must change the download url to your private repository.")
+end
+
+# Sanity check memory settings
+mem_req = ( node["cycle_server"]["grill"]["webServerMaxHeapSizeMB"].to_i +
+    node["cycle_server"]["grill"]["databaseMaxHeapSizeMB"].to_i +
+    node["cycle_server"]["grill"]["brokerMaxHeapSizeMB"].to_i )
+if mem_req > ( node[:memory][:total].to_i / 1024 * 0.90 )
+  Chef::Application.fatal!("Component heap size attributes require more than 90% of total system memory. Cowardly refusing to continue")
 end
 
 # You can disable inclusion of the java recipe if you have your own way of providing it
@@ -109,21 +118,8 @@ template "/opt/cycle_server/config/cycle_server.properties" do
   notifies :restart, "service[cycle_server]"
 end
 
-# EVIL - this is an awful way to fake service action :enable.
-# It is because of http://tickets.opscode.com/browse/CHEF-2345
-# I just died a little inside.
-
-ruby_block "enable_cycle_server" do
-  block do
-    chkconfig_on = /\d:on/
-    chkconfig = `/sbin/chkconfig --list "cycle_server"`
-    system("/sbin/chkconfig cycle_server on") unless chkconfig =~ chkconfig_on
-  end
-  action :create
-end
-
 service "cycle_server" do
-  provider Chef::Provider::Service::Init
   supports :status => false, :restart => true
-  action :start
+  status_command "ps -ef | grep [c]ycle_server"
+  action [ :start, :enable ]
 end

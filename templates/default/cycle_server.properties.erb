@@ -11,7 +11,7 @@ password=pass
 
 maxActiveDatabaseConnections=<%= node["cycle_server"]["grill"]["maxActiveDatabaseConnections"] %>
 
-webServerMaxHeapSize=<%= node["cycle_server"]["grill"]["webServerMaxHeapSize"] %>
+webServerMaxHeapSize=<%= "#{node["cycle_server"]["grill"]["webServerMaxHeapSizeMB"].to_i}M" %>
 
 webServerJvmOptions=
 
@@ -49,12 +49,12 @@ webServerTruststorePass=changeit
 # then it can be changed here.
 tomcat.shutdownPort=8007
 
-databaseMaxHeapSize=<%= node["cycle_server"]["grill"]["databaseMaxHeapSize"] %>
+databaseMaxHeapSize=<%= "#{node["cycle_server"]["grill"]["databaseMaxHeapSizeMB"].to_i}M" %>
 
 databaseJvmOptions=
 
 # The maximum memory for the message queue broker
-brokerMaxHeapSize=<%= node["cycle_server"]["grill"]["brokerMaxHeapSize"] %>
+brokerMaxHeapSize=<%= "#{node["cycle_server"]["grill"]["brokerMaxHeapSizeMB"].to_i}M" %>
 
 # Additional JVM options for the message queue broker
 brokerJvmOptions=
